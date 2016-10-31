@@ -1,5 +1,6 @@
 var React = require('react')
 var ProcessScan = require('../components/ProcessScan')
+var consuelaHelpers = require('../utils/consuelaHelpers');
 
 var ProcessScanContainer = React.createClass({
   contextTypes: {
@@ -13,6 +14,16 @@ var ProcessScanContainer = React.createClass({
       path: query.path,
       scanResult: []
     }
+  },
+  componentDidMount: function() {
+    var query = this.props.location.query;
+    consuelaHelpers.performScan(query.path)
+      .then(function (result) {
+        this.setState({
+          isLoading: false,
+          scanResult: [result]
+        })
+      }.bind(this))
   },
   render: function() {
     return (
