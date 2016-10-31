@@ -17,21 +17,22 @@ var PromptContainer = React.createClass({
   },
   handleSubmitPath: function(e) {
     e.preventDefault();
-    var username = this.state.path;
+    var path = this.state.path;
+    console.log(path);
     this.setState({
-      path: ''
+      path: path
     })
 
-    if (this.props.routeParams.path) {
-      console.log('path')
+    if (this.state.path) {
+      console.log(this.state.path)
       this.context.router.push({
         pathname: '/process',
         query: {
-          playerOne: this.props.routeParams.path
+          path: this.state.path
         }
       })
     } else {
-      console.log('here')
+      console.log('here1')
     }
   },
 

@@ -6,14 +6,15 @@ var IndexRoute = ReactRouter.IndexRoute;
 var hashHistory = ReactRouter.hashHistory;
 var Main = require('../components/Main');
 var Home = require('../components/Home');
-var PromptContainer = require('../containers/PromptContainer')
-
+var PromptContainer = require('../containers/PromptContainer');
+var ProcessScanContainer = require('../containers/ProcessScanContainer');
 
 var routes = (
   <Router history={hashHistory}>
     <Route path='/' component={Main}>
       <IndexRoute component={Home} />
       <Route path='path' header='Enter Path to Scan' component={PromptContainer}/>
+      <Route path='process' component={ProcessScanContainer} />
     </Route>
   </Router>
 )
