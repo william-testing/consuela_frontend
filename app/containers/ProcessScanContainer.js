@@ -19,6 +19,8 @@ var ProcessScanContainer = React.createClass({
     var query = this.props.location.query;
     consuelaHelpers.performScan(query.path)
       .then(function (result) {
+        console.log(result);
+        
         this.setState({
           isLoading: false,
           scanResult: [result]
