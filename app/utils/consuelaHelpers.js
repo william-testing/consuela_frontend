@@ -10,6 +10,16 @@ function retrieveScan (id) {
   })
 }
 
+function retrieveList () {
+  return axios.get('http://127.0.0.1:3000/file_scans/')
+  .then(function (response) {
+    return response.data;
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+}
+
 function performScan (path) {
   axios.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8';
 
@@ -31,6 +41,9 @@ var helpers = {
   },
   retrieveScan: function (id) {
     return retrieveScan(id)
+  },
+  retrieveList: function (id) {
+    return retrieveList()
   }
 }
 

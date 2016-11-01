@@ -18,7 +18,6 @@ var PromptContainer = React.createClass({
   handleSubmitPath: function(e) {
     e.preventDefault();
     var path = this.state.path;
-    console.log(path);
     this.setState({
       path: path
     })
@@ -32,7 +31,7 @@ var PromptContainer = React.createClass({
         }
       })
     } else {
-      console.log('here1')
+      console.log('here')
     }
   },
 
