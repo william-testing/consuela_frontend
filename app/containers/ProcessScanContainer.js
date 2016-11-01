@@ -7,12 +7,10 @@ var ProcessScanContainer = React.createClass({
     router: React.PropTypes.object.isRequired
   },
   getInitialState: function() {
-    var query = this.props.location.query;
-
     return {
       isLoading: true,
-      path: query.path,
-      scanResult: []
+      path: '',
+      scanResult: null
     }
   },
   componentDidMount: function() {
@@ -20,10 +18,10 @@ var ProcessScanContainer = React.createClass({
     consuelaHelpers.performScan(query.path)
       .then(function (result) {
         console.log(result);
-        
+
         this.setState({
           isLoading: false,
-          scanResult: [result]
+          scanResult: result
         })
       }.bind(this))
   },
