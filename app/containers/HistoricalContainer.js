@@ -9,8 +9,14 @@ var HistoricalContainer = React.createClass({
   getInitialState: function() {
     return {
       isLoading: true,
+      showUnsuccessful: false,
       historical: null
     }
+  },
+  handleSuccessChange: function(e) {
+    this.setState({
+      showUnsuccessful: e.target.checked
+    })
   },
   componentDidMount: function() {
     consuelaHelpers.retrieveList()
@@ -27,6 +33,8 @@ var HistoricalContainer = React.createClass({
           isLoading={this.state.isLoading}
           historical={this.state.historical}
           columns={['id', 'path', 'status']}
+          showUnsuccessful={this.state.showUnsuccessful}
+          onSuccessChange={this.handleSuccessChange}
         />
     )
   }

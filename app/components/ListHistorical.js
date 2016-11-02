@@ -13,7 +13,14 @@ function ListHistorical (props) {
     ? <p>Loading ...</p>
     : <div className="row">
         <div className="col-xs-12">
-          <h4>Last File Scans</h4>
+          <h4>Last Successful File Scans</h4>
+          <input
+            type="checkbox"
+            name="showUnsuccessful"
+            defaultChecked={props.showUnsuccessful}
+            onChange={props.onSuccessChange}
+          /> Show Unsuccessful
+
           <table className="table table-striped">
             <thead>
               <tr>
@@ -27,7 +34,13 @@ function ListHistorical (props) {
             <tbody>
               {
                 props.historical.map(function (item, idx) {
-                  return <TableRow key={idx} data={item} columns={props.columns}/>
+                  if (props.showUnsuccessful) {
+                    return <TableRow key={idx} data={item} columns={props.columns}/>
+                  } else {
+                    if (item.status == 1) {
+                      return <TableRow key={idx} data={item} columns={props.columns}/>
+                    }
+                  }
                 })
               }
             </tbody>
