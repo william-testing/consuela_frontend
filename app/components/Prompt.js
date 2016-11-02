@@ -19,11 +19,13 @@ function Prompt (props) {
           <div className="form-group col-sm-4 col-sm-offset-4">
             <button
               className="btn btn-block btn-success" type="submit">
-              Continue
+              Continue to scan {props.path}
             </button>
           </div>
         </form>
       </div>
+      <h1>{props.path}</h1>
+
     </div>
   )
 }
