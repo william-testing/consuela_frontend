@@ -7,7 +7,7 @@ var HistoricalContainer = require('../containers/HistoricalContainer')
 var Home = React.createClass({
   render: function() {
     return (
-      <div className="container">
+      <div>
         <div className='jumbotron col-sm-12 text-center' style={transparentBg}>
           <h1>Consuela</h1>
           <Link to='/path'>

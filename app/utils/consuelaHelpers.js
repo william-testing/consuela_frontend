@@ -10,6 +10,16 @@ function retrieveScan (id) {
   })
 }
 
+function retrieveJobScan (id) {
+  return axios.get('http://127.0.0.1:3000/scan_jobs/' + id)
+  .then(function (response) {
+    return response.data;
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+}
+
 function retrieveList () {
   return axios.get('http://127.0.0.1:3000/file_scans/')
   .then(function (response) {
@@ -24,10 +34,11 @@ function performScan (path) {
   axios.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8';
 
   console.log(path);
-  return axios.post('http://127.0.0.1:3000/file_scans', {
+  return axios.post('http://127.0.0.1:3000/scan_jobs', {
     path: path
   })
   .then(function (response) {
+    console.log(response)
     return response.data;
   })
   .catch(function (error) {
@@ -41,6 +52,9 @@ var helpers = {
   },
   retrieveScan: function (id) {
     return retrieveScan(id)
+  },
+  retrieveJobScan: function (id) {
+    return retrieveJobScan(id)
   },
   retrieveList: function (id) {
     return retrieveList()

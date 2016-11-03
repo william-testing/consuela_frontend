@@ -1,5 +1,6 @@
 var React = require('react')
 var Prompt = require('../components/Prompt');
+var consuelaHelpers = require('../utils/consuelaHelpers');
 
 var PromptContainer = React.createClass({
   contextTypes: {
@@ -21,18 +22,18 @@ var PromptContainer = React.createClass({
     this.setState({
       path: path
     })
-
-    if (this.state.path) {
-      console.log(this.state.path)
-      this.context.router.push({
-        pathname: '/process',
-        query: {
-          path: this.state.path
+    consuelaHelpers.performScan(path)
+      .then(function (result) {
+        if (result) {
+          console.log(result);
+          this.context.router.push({
+            pathname: '/process',
+            query: {
+              id: result.id
+            }
+          })
         }
-      })
-    } else {
-      console.log('here')
-    }
+      }.bind(this))
   },
 
   render: function() {

@@ -13,12 +13,19 @@ var ProcessScanContainer = React.createClass({
       scanResult: null
     }
   },
-  componentDidMount: function() {
+  componentDidMount: function () {
     var query = this.props.location.query;
-    consuelaHelpers.performScan(query.path)
+    consuelaHelpers.retrieveJobScan(query.id)
       .then(function (result) {
-        console.log(result);
-
+        this.setState({
+          isLoading: false,
+          scanResult: result
+        })
+      }.bind(this))
+  },
+  handleRefreshScan: function () {
+    consuelaHelpers.retrieveJobScan(this.state.scanResult.id)
+      .then(function (result) {
         this.setState({
           isLoading: false,
           scanResult: result
@@ -31,6 +38,7 @@ var ProcessScanContainer = React.createClass({
         isLoading={this.state.isLoading}
         scanResult={this.state.scanResult}
         path={this.state.path}
+        onRefreshScan={this.handleRefreshScan}
       />
     )
   }
