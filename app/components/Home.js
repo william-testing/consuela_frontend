@@ -11,7 +11,10 @@ var Home = React.createClass({
         <div className='jumbotron col-sm-12 text-center' style={transparentBg}>
           <h1>Consuela</h1>
           <Link to='/path'>
-            <button type="button" className='btn btn-success btn-lg'>Start New File Scan!</button>
+            <button type="button" className='btn btn-default btn-lg'>Start New File Scan</button>
+          </Link>
+          <Link to='/processCloudScan'>
+            <button type="button" className='btn btn-success btn-lg'>Start New Cloud Scan</button>
           </Link>
         </div>
         <div className="col-sm-12">

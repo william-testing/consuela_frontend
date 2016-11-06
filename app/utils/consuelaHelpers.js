@@ -20,6 +20,17 @@ function retrieveJobScan (id) {
   })
 }
 
+function retrieveCloudScan (id) {
+  return axios.get('http://127.0.0.1:3000/cloud_scans/' + id)
+  .then(function (response) {
+    return response.data;
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+}
+
+
 function retrieveList () {
   return axios.get('http://127.0.0.1:3000/file_scans/')
   .then(function (response) {
@@ -46,6 +57,21 @@ function performScan (path) {
   })
 }
 
+function performCloudScan (account) {
+  axios.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8';
+  return axios.post('http://127.0.0.1:3000/cloud_scans', {
+    account_id: account
+  })
+  .then(function (response) {
+    console.log(response)
+    return response.data;
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+}
+
+
 var helpers = {
   performScan: function (path) {
     return performScan(path)
@@ -58,7 +84,13 @@ var helpers = {
   },
   retrieveList: function (id) {
     return retrieveList()
-  }
+  },
+  performCloudScan: function(account) {
+    return performCloudScan(account)
+  },
+  retrieveCloudScan: function (id) {
+    return retrieveCloudScan(id)
+  },
 }
 
 module.exports = helpers;
