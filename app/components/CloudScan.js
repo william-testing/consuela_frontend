@@ -29,7 +29,7 @@ function CloudScan (props) {
               </div>
             </div>
             <div className="col-md-6 col-sm-12">
-            Active Bucket: {props.activeBucket}
+              Active Bucket: {props.activeBucket}
               <BucketList
                 buckets={props.result.buckets}
                 activeBucket={props.activeBucket}
@@ -39,16 +39,15 @@ function CloudScan (props) {
           </div>
         </div>
         <div className="col-sm-12">
-          <div>
-
+          <div style={styles.cloudScanResultContainer}>
+            <CloudScanResult
+              treeMap={props.result.tree_map}
+              flatMap={props.result.flat_map}
+              dupedMap={props.result.dup_data_map}
+              buckets={props.buckets}
+              activeBucket={props.activeBucket}
+            />
           </div>
-
-          <CloudScanResult
-            // treeMap={props.result.tree_map}
-            // flatMap={props.result.flat_map}
-            // dupedMap={props.result.dup_data_map}
-            // activeBucket={props.activeBucket}
-          />
         </div>
       </div>
 }
