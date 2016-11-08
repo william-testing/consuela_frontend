@@ -9,20 +9,26 @@ console.log(props)
   return (
     <div className="row">
       <div className="col-xs-12">
-        <h4>Buckets</h4>
-        {Object.keys(props.treeMap).map(function(bucketKey, idx) {
-          return (
-            <div key={idx}>
-              <h5>{bucketKey}</h5>
-              <div>
-                Files: {props.treeMap[bucketKey].file_count} (
-                  {scanJobHelpers.bytesToMb(
-                    props.treeMap[bucketKey].total_storage_size)} MB)
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h3 className="panel-title">Buckets</h3>
+          </div>
+          <div className="panel-body">
+            {Object.keys(props.treeMap).map(function(bucketKey, idx) {
+              return (
+                <div key={idx}>
+                  <h4>{bucketKey}</h4>
+                  <div>
+                    Files: {props.treeMap[bucketKey].file_count} (
+                      {scanJobHelpers.bytesToMb(
+                        props.treeMap[bucketKey].total_storage_size)} MB)
 
-              </div>
-            </div>
-          )
-        })}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -13,30 +13,7 @@ function CloudScan (props) {
     ? <p>Loading ...</p>
     : <div>
         <div className="jumbotron col-sm-12 text-center" style={styles.transparentBg}>
-          <h2>Scan Results</h2>
-        </div>
-        <div className="col-sm-12">
-          <div className="row">
-            <div className="col-md-6 col-sm-12">
-              <div>
-                <strong>ID:</strong> {props.result.id}
-              </div>
-              <div>
-                <strong>Account ID:</strong> {props.result.account_id}
-              </div>
-              <div>
-                <strong>Processed Date:</strong> {props.result.processed_date}
-              </div>
-            </div>
-            <div className="col-md-6 col-sm-12">
-              Active Bucket: {props.activeBucket}
-              <BucketList
-                buckets={props.result.buckets}
-                activeBucket={props.activeBucket}
-                onClickBucket={props.onClickBucket}
-              />
-            </div>
-          </div>
+          <h2>Scan Results <br/><small>for account '{props.result.account_id}'</small></h2>
         </div>
         <div className="col-sm-12">
           <div style={styles.cloudScanResultContainer}>
@@ -44,8 +21,11 @@ function CloudScan (props) {
               treeMap={props.result.tree_map}
               flatMap={props.result.flat_map}
               dupedMap={props.result.dup_data_map}
-              buckets={props.buckets}
+              buckets={props.result.buckets}
               activeBucket={props.activeBucket}
+              onClickBucket={props.onClickBucket}
+              accountId={props.result.account_id}
+              processedDate={props.result.processed_date}
             />
           </div>
         </div>
