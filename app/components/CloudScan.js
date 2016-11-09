@@ -20,7 +20,7 @@ function CloudScan (props) {
             <CloudScanResult
               treeMap={props.result.tree_map}
               flatMap={props.result.flat_map}
-              dupedMap={props.result.dup_data_map}
+              dupedDataMap={props.result.dup_data_map}
               buckets={props.result.buckets}
               activeBucket={props.activeBucket}
               onClickBucket={props.onClickBucket}

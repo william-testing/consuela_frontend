@@ -4,6 +4,7 @@ var styles = require('../styles');
 var BucketMetadata = require('../components/BucketMetadata')
 var BucketList = require('../components/BucketList')
 var CloudAccountDetails = require('../components/CloudAccountDetails')
+var DupedCloudData = require('../components/DupedCloudData')
 
 require('../less/main.less')
 
@@ -28,10 +29,12 @@ function CloudScanResult (props) {
       <div className="col-md-9 col-xs-12">
         <div className="panel panel-default">
           <div className="panel-heading">
-            <h3 className="panel-title">Tree Map</h3>
+            <h3 className="panel-title">Cloud Storage Information</h3>
           </div>
           <div className="panel-body">
-          {/* To insert body */}
+            <DupedCloudData
+              dupedDataMap={props.dupedDataMap}
+            />
           </div>
         </div>
       </div>
@@ -39,4 +42,4 @@ function CloudScanResult (props) {
   )
 }
 
-module.exports = CloudScanResult
+module.exports = CloudScanResult;
