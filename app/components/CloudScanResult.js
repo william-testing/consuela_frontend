@@ -4,7 +4,7 @@ var styles = require('../styles');
 var BucketMetadata = require('../components/BucketMetadata')
 var BucketList = require('../components/BucketList')
 var CloudAccountDetails = require('../components/CloudAccountDetails')
-var DupedCloudData = require('../components/DupedCloudData')
+var DupedCloudDataContainer = require('../containers/DupedCloudDataContainer')
 
 require('../less/main.less')
 
@@ -18,6 +18,7 @@ function CloudScanResult (props) {
         />
         <BucketMetadata
           treeMap={props.treeMap}
+          flatMap={props.flatMap}
           activeBucket={props.activeBucket}
         />
         <BucketList
@@ -27,16 +28,11 @@ function CloudScanResult (props) {
         />
       </div>
       <div className="col-md-9 col-xs-12">
-        <div className="panel panel-default">
-          <div className="panel-heading">
-            <h3 className="panel-title">Cloud Storage Information</h3>
-          </div>
-          <div className="panel-body">
-            <DupedCloudData
-              dupedDataMap={props.dupedDataMap}
-            />
-          </div>
-        </div>
+        <DupedCloudDataContainer
+          dupedDataMap={props.dupedDataMap}
+          activeBucket={props.activeBucket}
+          pathName={props.pathName}
+        />
       </div>
     </div>
   )

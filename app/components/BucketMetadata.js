@@ -2,9 +2,12 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 var styles = require('../styles');
 var scanJobHelpers = require('../utils/scanJobHelpers');
+import { Line } from 'rc-progress';
+
 require('../less/main.less');
 
 function BucketMetadata (props) {
+  console.log(props)
   return (
     <div className="row">
       <div className="col-xs-12">
@@ -23,6 +26,9 @@ function BucketMetadata (props) {
                     Files: {props.treeMap[bucketKey].file_count} (
                       {scanJobHelpers.bytesToMb(
                         props.treeMap[bucketKey].total_storage_size)} MB)
+                  </div>
+                  <div>
+                    <Line percent="10" strokeWidth="4" strokeColor="#00bc8c" />
                   </div>
                 </div>
               )

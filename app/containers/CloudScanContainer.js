@@ -41,6 +41,7 @@ var CloudScanContainer = React.createClass({
         result={this.state.result}
         onClickBucket={this.handleClickBucket}
         activeBucket={this.state.activeBucket}
+        pathName={this.props.location.pathname}
       />
     )
   }

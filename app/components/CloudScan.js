@@ -9,11 +9,14 @@ function puke (obj) {
 }
 
 function CloudScan (props) {
+  console.log(props)
   return props.isLoading === true
     ? <p>Loading ...</p>
     : <div>
-        <div className="jumbotron col-sm-12 text-center" style={styles.transparentBg}>
-          <h2>Scan Results <br/><small>for account '{props.result.account_id}'</small></h2>
+        <div className="col-sm-12">
+          <div className="page-header">
+            <h2>Scan Results <br/><small>for account '{props.result.account_id}'</small></h2>
+          </div>
         </div>
         <div className="col-sm-12">
           <div style={styles.cloudScanResultContainer}>
@@ -26,6 +29,7 @@ function CloudScan (props) {
               onClickBucket={props.onClickBucket}
               accountId={props.result.account_id}
               processedDate={props.result.processed_date}
+              pathName={props.pathName}
             />
           </div>
         </div>
