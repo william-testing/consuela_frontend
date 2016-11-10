@@ -21,17 +21,35 @@ var DupedCloudDataContainer = React.createClass({
       activeBucket: this.props.activeBucket,
       dupedDataMap: this.props.dupedDataMap,
       tabData: tabData,
-      activeTab: tabData[0]
+      activeTab: tabData[0],
+      content: 'Loading...'
     }
   },
+  componentWillMount: function() {
+    var contentBody = this.getContentForActiveTab(this.state.activeTab.name)
+    this.setState({
+      content: contentBody
+    });
+  },
   handleClick: function(tab) {
-    this.setState({activeTab: tab});
+    this.setState({
+      activeTab: tab,
+      content: this.getContentForActiveTab(tab.name)
+    });
+  },
+  getContentForActiveTab: function(name) {
+    console.log(name);
+    if (name === 'Tab 1') {
+      return <h2>Tab 1</h2>
+    } else {
+      return <h2>Tab Other</h2>
+    }
   },
   render: function() {
     return (
       <div>
         <Tabs activeTab={this.state.activeTab} tabs={this.state.tabData} changeTab={this.handleClick} />
-        <Content activeTab={this.state.activeTab} content={'Test Content'} />
+        <Content activeTab={this.state.activeTab} content={this.state.content} />
       </div>
     );
   }
