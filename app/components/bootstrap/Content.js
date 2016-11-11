@@ -5,25 +5,18 @@ var Content = React.createClass({
   render: function() {
     return (
       <div>
-        {this.props.activeTab.name === 'Tab 1' ?
+        {this.props.activeTab.name === 'Duplicated Files' ?
         <section>
-          <p className="panel-body">
-            {this.props.activeTab.name} {this.props.content}
-          </p>
+          <div className="panel-body">
+            {this.props.content}
+          </div>
          </section>
         :null}
-        {this.props.activeTab.name === 'Tab 2' ?
+        {this.props.activeTab.name === 'Storage Visualisations' ?
         <section>
-          <p className="panel-body">
-            {this.props.activeTab.name} {this.props.content}
-          </p>
-        </section>
-        :null}
-        {this.props.activeTab.name === 'Tab 3' ?
-        <section>
-          <p className="panel-body">
-            {this.props.activeTab.name} {this.props.content}
-          </p>
+          <div className="panel-body">
+            {this.props.content}
+          </div>
         </section>
         :null}
       </div>

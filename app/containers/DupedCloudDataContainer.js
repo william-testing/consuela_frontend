@@ -7,9 +7,8 @@ var Content = require('../components/bootstrap/Content.js')
 require('../less/main.less')
 
 var tabData = [
-  { name: 'Tab 1', isActive: true },
-  { name: 'Tab 2', isActive: false },
-  { name: 'Tab 3', isActive: false }
+  { name: 'Duplicated Files', isActive: true },
+  { name: 'Storage Visualisations', isActive: false }
 ]
 
 var DupedCloudDataContainer = React.createClass({
@@ -38,11 +37,57 @@ var DupedCloudDataContainer = React.createClass({
     });
   },
   getContentForActiveTab: function(name) {
-    console.log(name);
-    if (name === 'Tab 1') {
-      return <h2>Tab 1</h2>
+    if (name === 'Duplicated Files') {
+      var code = this.state.dupedDataMap.metadata.file_count > 0
+      ? 'panel-danger' : 'panel-default'
+      var panelClasses = "panel " + code;
+
+      var color = this.state.dupedDataMap.metadata.file_count > 0
+      ? 'text-danger' : ''
+      var contentMainClasses = "panel-content-main " + color;
+
+      return (
+        <div>
+          <h4>Files</h4>
+          <div className="row">
+            <div className="col-md-6 col-xs-12">
+              <div className={panelClasses}>
+                <div className="panel-body">
+                  <div className={contentMainClasses}>
+                    {this.state.dupedDataMap.metadata.file_count}
+                  </div>
+                  <div className="panel-content-title">
+                    Duplicated File Count
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-6 col-xs-12">
+              <div className={panelClasses}>
+                <div className="panel-body">
+                  <div className={contentMainClasses}>
+                    {this.state.dupedDataMap.metadata.total_storage_size}
+                  </div>
+                  <div className="panel-content-title">
+                    Total Storage Lost
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-xs-12">
+              <div className="panel panel-default">
+                <div className="panel-body">
+                  Basic panel example
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
     } else {
-      return <h2>Tab Other</h2>
+      return <h4>Visualisations</h4>
     }
   },
   render: function() {
