@@ -17,7 +17,6 @@ var DupedCloudDataContainer = React.createClass({
   },
   getInitialState: function() {
     return {
-      activeBucket: this.props.activeBucket,
       dupedDataMap: this.props.dupedDataMap,
       tabData: tabData,
       activeTab: tabData[0],
@@ -45,6 +44,9 @@ var DupedCloudDataContainer = React.createClass({
       var color = this.state.dupedDataMap.metadata.file_count > 0
       ? 'text-danger' : ''
       var contentMainClasses = "panel-content-main " + color;
+
+      console.log('here')
+      console.log(this.props.activeBucket)
 
       return (
         <div>
@@ -79,7 +81,19 @@ var DupedCloudDataContainer = React.createClass({
             <div className="col-xs-12">
               <div className="panel panel-default">
                 <div className="panel-body">
-                  Basic panel example
+
+                    {
+                      Object.keys(this.state.dupedDataMap.files).map(function(fileKey, idx) {
+                        return (this.state.dupedDataMap.files[fileKey].map(function(key, val) {
+                          return (
+                            <div>
+                              {this.state.activeBucket === key ?
+                              <div>{key}</div>
+                              :null}
+                            </div>
+                          )}.bind(this)))
+                        }.bind(this))
+                    }
                 </div>
               </div>
             </div>

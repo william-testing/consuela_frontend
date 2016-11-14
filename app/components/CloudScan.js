@@ -9,7 +9,6 @@ function puke (obj) {
 }
 
 function CloudScan (props) {
-  console.log(props)
   return props.isLoading === true
     ? <p>Loading ...</p>
     : <div>

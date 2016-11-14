@@ -25,7 +25,6 @@ var CloudPromptContainer = React.createClass({
     consuelaHelpers.performCloudScan(account)
       .then(function (result) {
         if (result) {
-          console.log(result);
           this.context.router.push({
             pathname: '/cloudScan',
             query: {

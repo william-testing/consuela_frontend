@@ -7,7 +7,6 @@ import { Line } from 'rc-progress';
 require('../less/main.less');
 
 function BucketMetadata (props) {
-  console.log(props)
   return (
     <div className="row">
       <div className="col-xs-12">

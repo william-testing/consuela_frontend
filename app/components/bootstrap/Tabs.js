@@ -4,7 +4,6 @@ var Tab = require('../../components/bootstrap/Tab.js')
 
 var Tabs = React.createClass({
   getInitialState: function() {
-    console.log(this.props)
     return {
       activeBucket: this.props.activeBucket,
       dupedDataMap: this.props.dupedDataMap,

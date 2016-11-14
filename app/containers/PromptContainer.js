@@ -25,7 +25,6 @@ var PromptContainer = React.createClass({
     consuelaHelpers.performScan(path)
       .then(function (result) {
         if (result) {
-          console.log(result);
           this.context.router.push({
             pathname: '/process',
             query: {

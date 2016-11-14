@@ -17,7 +17,6 @@ var CloudScanContainer = React.createClass({
     var query = this.props.location.query;
     consuelaHelpers.retrieveCloudScan(query.id)
       .then(function (result) {
-        console.log(result)
         this.setState({
           isLoading: false,
           result: result
