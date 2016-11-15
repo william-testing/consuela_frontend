@@ -4,10 +4,6 @@ var styles = require('../styles');
 var CloudScanResult = require('../components/CloudScanResult')
 var BucketList = require('../components/BucketList')
 
-function puke (obj) {
-  return <pre>{JSON.stringify(obj, null, ' ')}</pre>
-}
-
 function CloudScan (props) {
   return props.isLoading === true
     ? <p>Loading ...</p>

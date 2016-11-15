@@ -28,6 +28,7 @@
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "rc-progress": "^2.0.1",
+    "react-bootstrap": "^0.30.6",
     "react-highcharts": "^11.0.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
