@@ -10,6 +10,8 @@ var PromptContainer = require('../containers/PromptContainer');
 var ProcessScanContainer = require('../containers/ProcessScanContainer');
 var CloudPromptContainer = require('../containers/CloudPromptContainer');
 var CloudScanContainer = require('../containers/CloudScanContainer');
+var VisualisationsContainer = require('../containers/VisualisationsContainer');
+
 
 var routes = (
   <Router history={hashHistory}>
@@ -18,6 +20,7 @@ var routes = (
       <Route path='path' header='Enter Path to Scan' component={PromptContainer}/>
       <Route path='process' component={ProcessScanContainer}/>
       <Route path='cloudScan' component={CloudScanContainer}/>
+      <Route path='visualisations' component={VisualisationsContainer}/>
       <Route path='processCloudScan' component={CloudPromptContainer}/>
     </Route>
   </Router>

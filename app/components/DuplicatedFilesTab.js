@@ -59,6 +59,7 @@ var DuplicatedFilesTab = React.createClass({
                     <Panel key={idx} header={fileKey}>
                     {
                       this.props.dupedDataMap.files[fileKey].map(function(fileKey, val) {
+                      console.log(this.props.dupedDataMap.files[fileKey])
                       return (
                         !this.props.activeBucket ||
                             (this.props.activeBucket === fileKey.bucket)
